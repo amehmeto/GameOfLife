@@ -1,6 +1,28 @@
-import {GameOfLife} from './gameOfLife'
+import {GameOfLife, Grid} from './GameOfLife'
+import {Parser} from './Parser'
 
-describe('Game of Life', () => {
+describe('Game of Life tests suite', () => {
+
+    it.each([
+        [
+            'Generation 1:\n' +
+            '4 8\n' +
+            '........\n' +
+            '..**..*.\n' +
+            '..**..*.\n' +
+            '........\n',
+            {
+                generation: 1,
+                height: 4,
+                width: 8,
+                grid: "........\n..**..*.\n..**..*.\n........\n",
+            }
+        ]
+    ])('should parse initialGeneration input',
+        (initialGeneration: string, parsedGrid: Grid) => {
+        expect(new Parser().parse(initialGeneration)).toStrictEqual(parsedGrid)
+    })
+
     it.each([
         [
             'Generation 1:\n' +
@@ -50,7 +72,7 @@ describe('Game of Life', () => {
         ).toStrictEqual(nextGeneration)
     })
 
-    it.each([
+    it.skip.each([
         [
             'Generation 1:\n' +
             '4 8\n' +
