@@ -22,11 +22,16 @@ export class GameOfLife {
 
         for (let i = 0 ; grid[i] ; i++) {
             let neighbours = this.countNeighbours(grid, i)
-            if (grid[i] === this.NEW_LINE)
-                newGrid += this.NEW_LINE
-            else
-                newGrid += (neighbours < 2) ? this.DEAD_CELL : grid[i]
+            newGrid = this.writeAccordingToNeighbours(grid, i, newGrid, neighbours)
         }
+        return newGrid
+    }
+
+    private writeAccordingToNeighbours(grid: string, i: number, newGrid: string, neighbours: number) {
+        if (grid[i] === this.NEW_LINE)
+            newGrid += this.NEW_LINE
+        else
+            newGrid += (neighbours < 2) ? this.DEAD_CELL : grid[i]
         return newGrid
     }
 
