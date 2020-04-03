@@ -1,0 +1,25 @@
+{
+  "name": "gameoflife",
+  "version": "1.0.0",
+  "description": "This Kata is about calculating the next generation of Conway’s game of life, given any starting position. See http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life for background.",
+  "main": "jest.config.js",
+  "dependencies": {
+    "jest": "^25.2.7",
+    "ts-jest": "^25.3.0",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amehmeto/GameOfLife.git"
+  },
+  "author": "Amehmeto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amehmeto/GameOfLife/issues"
+  },
+  "homepage": "https://github.com/amehmeto/GameOfLife#readme"
+}
