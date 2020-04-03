@@ -86,7 +86,7 @@ describe('Game of Life tests suite', () => {
         ],
     ])('should increment Generation number at first line', (initialGeneration, nextGeneration) => {
         expect(
-            new GameOfLife().generateNext(initialGeneration)
+            new GameOfLife().generateFrom(initialGeneration)
         ).toStrictEqual(nextGeneration)
     })
 
@@ -122,7 +122,7 @@ describe('Game of Life tests suite', () => {
     ])('should kill cell if it has fewer than 2 neighbours',
         (initialGeneration, nextGeneration) => {
         expect(
-            new GameOfLife().generateNext(initialGeneration)
+            new GameOfLife().generateFrom(initialGeneration)
         ).toStrictEqual(nextGeneration)
     })
 })
