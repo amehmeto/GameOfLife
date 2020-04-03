@@ -4,8 +4,9 @@ import {GridBuilder} from './GridBuilder'
 export class GameOfLife {
 
     generateFrom(initialGeneration: string): string {
-        let nextGrid: Grid = Parser.parse(initialGeneration)
-        return GridBuilder.buildNextGeneration(nextGrid)
+        let initialGrid: Grid = Parser.parse(initialGeneration)
+        let nextGrid: Grid = GridBuilder.buildGeneration(initialGrid)
+        return GridBuilder.formatWith(nextGrid)
     }
 
 }
