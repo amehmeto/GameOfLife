@@ -10,22 +10,19 @@ export class Parser {
         console.log(gridDataPattern, JSON.stringify(gridData))
         if (gridData){
             return {
-                generation: +gridData[1],
-                height: +gridData[2],
-                width: +gridData[3],
-                grid: gridData[4]
+                generation: +gridData[GridDataPattern.Generation],
+                height: +gridData[GridDataPattern.Height],
+                width: +gridData[GridDataPattern.Width],
+                grid: gridData[GridDataPattern.Grid]
             }
-        }
-        return {
-            generation: 0,
-            height: 0,
-            width: 0,
-            grid: '',
-        }
-        /*
-         else
+        } else
              throw Error('Wrong input format')
-
-        */
     }
+}
+
+enum GridDataPattern {
+    Generation = 1,
+    Height = 2,
+    Width = 3,
+    Grid = 4,
 }
