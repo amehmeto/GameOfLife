@@ -20,7 +20,7 @@ describe('Game of Life tests suite', () => {
         ]
     ])('should parse initialGeneration input',
         (initialGeneration: string, parsedGrid: Grid) => {
-        expect(new Parser().parse(initialGeneration)).toStrictEqual(parsedGrid)
+        expect(Parser.parse(initialGeneration)).toStrictEqual(parsedGrid)
     })
 
     it.each([

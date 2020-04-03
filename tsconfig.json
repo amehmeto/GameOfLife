@@ -18,6 +18,6 @@
   ],
   "include": [
     "src/**/*",
-    "build/Bowling.d.ts"
+    "build/*.d.ts"
   ]
 }

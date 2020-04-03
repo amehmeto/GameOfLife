@@ -2,12 +2,11 @@ import {Grid} from './GameOfLife'
 
 export class Parser {
 
-    parse(initialGeneration: string): Grid {
+    static parse(initialGeneration: string): Grid {
         let gridDataPattern: string = "^Generation (\\d+):\\n(\\d+) (\\d+)\\n([\\.*\\n]+)$"
         let gridData: RegExpMatchArray | null =
             initialGeneration.match(gridDataPattern)
 
-        console.log(gridDataPattern, JSON.stringify(gridData))
         if (gridData){
             return {
                 generation: +gridData[GridDataPattern.Generation],
@@ -18,6 +17,7 @@ export class Parser {
         } else
              throw Error('Wrong input format')
     }
+
 }
 
 enum GridDataPattern {
