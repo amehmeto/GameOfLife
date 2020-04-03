@@ -23,6 +23,24 @@ describe('Game of Life tests suite', () => {
         expect(Parser.parse(initialGeneration)).toStrictEqual(parsedGrid)
     })
 
+    it('should reject wrong format', () => {
+        expect(Parser.parse).toThrowError('Not able to match grid pattern')
+        let thrownError
+        const initialGeneration = 'Generation :\n' +
+            '4 8\n' +
+            '........\n' +
+            '..**..*.\n' +
+            '..**..*.\n' +
+            '........\n'
+
+        try {
+            Parser.parse(initialGeneration)
+        } catch (e) {
+            thrownError = e
+        }
+        expect(thrownError).toStrictEqual(new Error('Grid data is null'))
+    })
+
     it.each([
         [
             'Generation 1:\n' +

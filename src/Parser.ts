@@ -4,8 +4,13 @@ export class Parser {
 
     static parse(initialGeneration: string): Grid {
         let gridDataPattern: string = "^Generation (\\d+):\\n(\\d+) (\\d+)\\n([\\.*\\n]+)$"
-        let gridData: RegExpMatchArray | null =
-            initialGeneration.match(gridDataPattern)
+        let gridData: RegExpMatchArray | null
+
+        try {
+            gridData = initialGeneration.match(gridDataPattern)
+        } catch (e) {
+            throw Error('Not able to match grid pattern')
+        }
 
         if (gridData){
             return {
@@ -15,7 +20,7 @@ export class Parser {
                 grid: gridData[GridDataPattern.Grid]
             }
         } else
-             throw Error('Wrong input format')
+             throw Error('Grid data is null')
     }
 
 }
