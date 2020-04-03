@@ -90,7 +90,7 @@ describe('Game of Life tests suite', () => {
         ).toStrictEqual(nextGeneration)
     })
 
-    it.skip.each([
+    it.each([
         [
             'Generation 1:\n' +
             '4 8\n' +
