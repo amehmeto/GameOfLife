@@ -11,7 +11,7 @@ export class Parser {
         try {
             matches = initialGeneration.match(rawGenerationPattern)
         } catch (e) {
-            throw Error('Not able to match grid pattern')
+            throw Error('Not able to match generation pattern')
         }
 
         if (matches) {
@@ -22,7 +22,7 @@ export class Parser {
                 grid: matches[CapturedPattern.Grid]
             }
         } else
-             throw Error('Grid data is null')
+             throw Error('Raw generation format is not correct')
     }
 
 }
