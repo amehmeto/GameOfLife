@@ -1,8 +1,8 @@
-import {Grid} from './GameOfLife'
+import {Generation} from './GameOfLife'
 
 export class Parser {
 
-    static parse(initialGeneration: string): Grid {
+    static parse(initialGeneration: string): Generation {
         let gridDataPattern: string = "^Generation (\\d+):\\n(\\d+) (\\d+)\\n([\\.*\\n]+)$"
         let gridData: RegExpMatchArray | null
 

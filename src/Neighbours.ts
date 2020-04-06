@@ -1,57 +1,59 @@
+import {Generation} from './GameOfLife'
+
 export class Neighbours {
 
     static LIVING_CELL: string = '*'
 
-    static count(grid: string, i: number): number {
+    static count(g: Generation, i: number): number {
         let neighbours: number = 0
-        if (this.hasLeftLivingCell(grid, i))
+        if (this.hasTopLeftLivingCell(g, i))
             neighbours++
-        if (this.hasRightLivingCell(grid, i))
+        if (this.hasTopLivingCell(g, i))
             neighbours++
-        if (this.hasTopLivingCell(grid, i))
+        if (this.hasTopRightLivingCell(g, i))
             neighbours++
-        if (this.hadBottomLivingCell(grid, i))
+        if (this.hasRightLivingCell(g, i))
             neighbours++
-        if (this.hasTopLeftLivingCell(grid, i))
+        if (this.hasBottomRightLivingCell(g, i))
             neighbours++
-        if (this.hasTopRightLivingCell(grid, i))
+        if (this.hadBottomLivingCell(g, i))
             neighbours++
-        if (this.hasBottomLeftLivingCell(grid, i))
+        if (this.hasBottomLeftLivingCell(g, i))
             neighbours++
-        if (this.hasBottomRightLivingCell(grid, i))
+        if (this.hasLeftLivingCell(g, i))
             neighbours++
         return neighbours
     }
 
-    private static hasTopLeftLivingCell(grid: string, i: number) {
-        return grid[i - 10] === this.LIVING_CELL
+    private static hasTopLeftLivingCell(g: Generation, i: number) {
+        return g.grid[i - g.width - 2] === this.LIVING_CELL
     }
 
-    private static hasTopLivingCell(grid: string, i: number) {
-        return grid[i - 9] === this.LIVING_CELL
+    private static hasTopLivingCell(g: Generation, i: number) {
+        return g.grid[i - g.width - 1] === this.LIVING_CELL
     }
 
-    private static hasTopRightLivingCell(grid: string, i: number) {
-        return grid[i - 8] === this.LIVING_CELL
+    private static hasTopRightLivingCell(g: Generation, i: number) {
+        return g.grid[i - g.width] === this.LIVING_CELL
     }
 
-    private static hasRightLivingCell(grid: string, i: number) {
-        return grid[i + 1] === this.LIVING_CELL
+    private static hasRightLivingCell(g: Generation, i: number) {
+        return g.grid[i + 1] === this.LIVING_CELL
     }
 
-    private static hasBottomRightLivingCell(grid: string, i: number) {
-        return grid[i + 10] === this.LIVING_CELL
+    private static hasBottomRightLivingCell(g: Generation, i: number) {
+        return g.grid[i + g.width + 2] === this.LIVING_CELL
     }
 
-    private static hadBottomLivingCell(grid: string, i: number) {
-        return grid[i + 9] === this.LIVING_CELL
+    private static hadBottomLivingCell(g: Generation, i: number) {
+        return g.grid[i + g.width + 1] === this.LIVING_CELL
     }
 
-    private static hasBottomLeftLivingCell(grid: string, i: number) {
-        return grid[i + 8] === this.LIVING_CELL
+    private static hasBottomLeftLivingCell(g: Generation, i: number) {
+        return g.grid[i + g.width] === this.LIVING_CELL
     }
 
-    private static hasLeftLivingCell(grid: string, i: number) {
-        return grid[i - 1] === this.LIVING_CELL
+    private static hasLeftLivingCell(g: Generation, i: number) {
+        return g.grid[i - 1] === this.LIVING_CELL
     }
 }
