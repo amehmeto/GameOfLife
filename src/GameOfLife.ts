@@ -1,14 +1,20 @@
 import {Parser} from './Parser'
-import {GridBuilder} from './GridBuilder'
+import {GenerationBuilder} from './GenerationBuilder'
 
 export class GameOfLife {
 
-    generateFrom(initialGeneration: string): string {
-        let initialGrid: Generation = Parser.parse(initialGeneration)
-        let nextGrid: Generation = GridBuilder.buildGeneration(initialGrid)
-        return GridBuilder.formatWith(nextGrid)
+    generateFrom(initialRawGeneration: string): string {
+        let parsedGeneration: Generation = Parser.parse(initialRawGeneration)
+        let nextGeneration: Generation = GenerationBuilder.buildGeneration(parsedGeneration)
+        return GenerationBuilder.formatWith(nextGeneration)
     }
 
+}
+
+export enum Cell {
+    LIVING = '*',
+    DEAD = '.',
+    NEW_LINE = "\n",
 }
 
 export type Generation = {

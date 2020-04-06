@@ -1,6 +1,6 @@
 import {GameOfLife, Generation} from './GameOfLife'
 import {Parser} from './Parser'
-import {GridBuilder} from './GridBuilder'
+import {GenerationBuilder} from './GenerationBuilder'
 
 describe('Game of Life tests suite', () => {
 
@@ -53,7 +53,7 @@ describe('Game of Life tests suite', () => {
 
     it.each([
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 1,
                 height: 4,
                 width: 8,
@@ -63,7 +63,7 @@ describe('Game of Life tests suite', () => {
                     "........\n" +
                     "........\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 2,
                 height: 4,
                 width: 8,
@@ -75,7 +75,7 @@ describe('Game of Life tests suite', () => {
             })
         ],
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 2,
                 height: 4,
                 width: 8,
@@ -85,7 +85,7 @@ describe('Game of Life tests suite', () => {
                     "........\n" +
                     "........\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 3,
                 height: 4,
                 width: 8,
@@ -97,7 +97,7 @@ describe('Game of Life tests suite', () => {
             }),
         ],
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 12,
                 height: 4,
                 width: 8,
@@ -107,7 +107,7 @@ describe('Game of Life tests suite', () => {
                     "........\n" +
                     "........\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 13,
                 height: 4,
                 width: 8,
@@ -124,7 +124,7 @@ describe('Game of Life tests suite', () => {
 
     it.each([
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 2,
                 height: 4,
                 width: 8,
@@ -134,7 +134,7 @@ describe('Game of Life tests suite', () => {
                     "........\n" +
                     "........\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 3,
                 height: 4,
                 width: 8,
@@ -146,7 +146,7 @@ describe('Game of Life tests suite', () => {
             })
         ],
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 1,
                 height: 4,
                 width: 8,
@@ -156,7 +156,7 @@ describe('Game of Life tests suite', () => {
                     "..**....\n" +
                     "........\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 2,
                 height: 4,
                 width: 8,
@@ -174,7 +174,7 @@ describe('Game of Life tests suite', () => {
 
     it.each([
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 1,
                 height: 4,
                 width: 8,
@@ -184,7 +184,7 @@ describe('Game of Life tests suite', () => {
                     "..**....\n" +
                     "........\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 2,
                 height: 4,
                 width: 8,
@@ -196,7 +196,7 @@ describe('Game of Life tests suite', () => {
             })
         ],
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 1,
                 height: 4,
                 width: 8,
@@ -206,7 +206,7 @@ describe('Game of Life tests suite', () => {
                     "..****..\n" +
                     "...****.\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 2,
                 height: 4,
                 width: 8,
@@ -224,7 +224,7 @@ describe('Game of Life tests suite', () => {
 
     it.each([
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 1,
                 height: 4,
                 width: 8,
@@ -234,7 +234,7 @@ describe('Game of Life tests suite', () => {
                     "..**....\n" +
                     "........\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 2,
                 height: 4,
                 width: 8,
@@ -246,7 +246,7 @@ describe('Game of Life tests suite', () => {
             })
         ],
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 1,
                 height: 4,
                 width: 8,
@@ -256,7 +256,7 @@ describe('Game of Life tests suite', () => {
                     ".*..*...\n" +
                     "..**....\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 2,
                 height: 4,
                 width: 8,
@@ -268,7 +268,7 @@ describe('Game of Life tests suite', () => {
             })
         ],
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 1,
                 height: 4,
                 width: 8,
@@ -278,7 +278,7 @@ describe('Game of Life tests suite', () => {
                     "..*.*...\n" +
                     "...*....\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 2,
                 height: 4,
                 width: 8,
@@ -297,7 +297,7 @@ describe('Game of Life tests suite', () => {
 
     it.each([
         [
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 1,
                 height: 4,
                 width: 8,
@@ -307,7 +307,7 @@ describe('Game of Life tests suite', () => {
                     "...**...\n" +
                     "........\n",
             }),
-            GridBuilder.formatWith({
+            GenerationBuilder.formatWith({
                 generation: 2,
                 height: 4,
                 width: 8,
@@ -325,7 +325,7 @@ describe('Game of Life tests suite', () => {
 
     it.each([
             [
-                GridBuilder.formatWith({
+                GenerationBuilder.formatWith({
                     generation: 12,
                     height: 11,
                     width: 5,
@@ -343,7 +343,7 @@ describe('Game of Life tests suite', () => {
                         ".....\n" +
                         ".....\n"
                 }),
-                GridBuilder.formatWith({
+                GenerationBuilder.formatWith({
                     generation: 13,
                     height: 11,
                     width: 5,

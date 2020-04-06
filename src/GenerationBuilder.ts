@@ -1,10 +1,7 @@
 import {Neighbours} from './Neighbours'
-import {Generation} from './GameOfLife'
+import {Cell, Generation} from './GameOfLife'
 
-export class GridBuilder {
-    private static NEW_LINE = "\n"
-    private static DEAD_CELL = '.'
-    private static LIVING_CELL: string = '*'
+export class GenerationBuilder {
 
     static buildGeneration(nextGeneration: Generation): Generation {
         return {
@@ -15,10 +12,10 @@ export class GridBuilder {
         }
     }
 
-    static formatWith(grid: Generation): string {
-        return 'Generation ' + grid.generation + ':\n' +
-            grid.height + ' ' + grid.width + '\n' +
-            grid.grid
+    static formatWith(g: Generation): string {
+        return 'Generation ' + g.generation + ':\n' +
+            g.height + ' ' + g.width + '\n' +
+            g.grid
     }
 
     private static buildNextGrid(g: Generation): string {
@@ -33,19 +30,19 @@ export class GridBuilder {
 
     private static writeAccordingToNeighbourhood(g: Generation, i: number, newGrid: string, neighbours: number) {
         if (this.isDeadCell(g.grid, i))
-            newGrid += (neighbours === 3) ? this.LIVING_CELL : this.DEAD_CELL
+            newGrid += (neighbours === 3) ? Cell.LIVING : Cell.DEAD
         else if (this.isLivingCell(g.grid, i))
-            newGrid += (neighbours < 2 || neighbours > 3) ? this.DEAD_CELL : this.LIVING_CELL
+            newGrid += (neighbours < 2 || neighbours > 3) ? Cell.DEAD : Cell.LIVING
         else
-            newGrid += this.NEW_LINE
+            newGrid += Cell.NEW_LINE
         return newGrid
     }
 
     private static isLivingCell(grid: string, i: number) {
-        return grid[i] === this.LIVING_CELL
+        return grid[i] === Cell.LIVING
     }
 
     private static isDeadCell(grid: string, i: number) {
-        return grid[i] === this.DEAD_CELL
+        return grid[i] === Cell.DEAD
     }
 }

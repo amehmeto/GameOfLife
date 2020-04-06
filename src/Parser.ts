@@ -1,23 +1,25 @@
-import {Generation} from './GameOfLife'
+import {Cell, Generation} from './GameOfLife'
 
 export class Parser {
 
     static parse(initialGeneration: string): Generation {
-        let gridDataPattern: string = "^Generation (\\d+):\\n(\\d+) (\\d+)\\n([\\.*\\n]+)$"
-        let gridData: RegExpMatchArray | null
+        let rawGenerationPattern: string =
+            "^Generation (\\d+):" + Cell.NEW_LINE + "(\\d+) (\\d+)" + Cell.NEW_LINE + "([\\"
+            + Cell.LIVING + Cell.DEAD + Cell.NEW_LINE + "]+)$"
+        let matches: RegExpMatchArray | null
 
         try {
-            gridData = initialGeneration.match(gridDataPattern)
+            matches = initialGeneration.match(rawGenerationPattern)
         } catch (e) {
             throw Error('Not able to match grid pattern')
         }
 
-        if (gridData){
+        if (matches) {
             return {
-                generation: +gridData[GridDataPattern.Generation],
-                height: +gridData[GridDataPattern.Height],
-                width: +gridData[GridDataPattern.Width],
-                grid: gridData[GridDataPattern.Grid]
+                generation: +matches[CapturedPattern.Generation],
+                height: +matches[CapturedPattern.Height],
+                width: +matches[CapturedPattern.Width],
+                grid: matches[CapturedPattern.Grid]
             }
         } else
              throw Error('Grid data is null')
@@ -25,7 +27,7 @@ export class Parser {
 
 }
 
-enum GridDataPattern {
+enum CapturedPattern {
     Generation = 1,
     Height = 2,
     Width = 3,

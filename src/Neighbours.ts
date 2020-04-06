@@ -1,8 +1,6 @@
-import {Generation} from './GameOfLife'
+import {Cell, Generation} from './GameOfLife'
 
 export class Neighbours {
-
-    static LIVING_CELL: string = '*'
 
     static count(g: Generation, i: number): number {
         let neighbours: number = 0
@@ -26,34 +24,34 @@ export class Neighbours {
     }
 
     private static hasTopLeftLivingCell(g: Generation, i: number) {
-        return g.grid[i - g.width - 2] === this.LIVING_CELL
+        return g.grid[i - g.width - 2] ===  Cell.LIVING
     }
 
     private static hasTopLivingCell(g: Generation, i: number) {
-        return g.grid[i - g.width - 1] === this.LIVING_CELL
+        return g.grid[i - g.width - 1] === Cell.LIVING
     }
 
     private static hasTopRightLivingCell(g: Generation, i: number) {
-        return g.grid[i - g.width] === this.LIVING_CELL
+        return g.grid[i - g.width] === Cell.LIVING
     }
 
     private static hasRightLivingCell(g: Generation, i: number) {
-        return g.grid[i + 1] === this.LIVING_CELL
+        return g.grid[i + 1] === Cell.LIVING
     }
 
     private static hasBottomRightLivingCell(g: Generation, i: number) {
-        return g.grid[i + g.width + 2] === this.LIVING_CELL
+        return g.grid[i + g.width + 2] === Cell.LIVING
     }
 
     private static hadBottomLivingCell(g: Generation, i: number) {
-        return g.grid[i + g.width + 1] === this.LIVING_CELL
+        return g.grid[i + g.width + 1] === Cell.LIVING
     }
 
     private static hasBottomLeftLivingCell(g: Generation, i: number) {
-        return g.grid[i + g.width] === this.LIVING_CELL
+        return g.grid[i + g.width] === Cell.LIVING
     }
 
     private static hasLeftLivingCell(g: Generation, i: number) {
-        return g.grid[i - 1] === this.LIVING_CELL
+        return g.grid[i - 1] === Cell.LIVING
     }
 }
