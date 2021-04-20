@@ -3,7 +3,7 @@ import {Cell, Generation} from './GameOfLife'
 export class Parser {
 
     static parse(initialGeneration: string): Generation {
-        let rawGenerationPattern: string =
+        const rawGenerationPattern =
             "^Generation (\\d+):" + Cell.NEW_LINE + "(\\d+) (\\d+)" + Cell.NEW_LINE + "([\\"
             + Cell.LIVING + Cell.DEAD + Cell.NEW_LINE + "]+)$"
         let matches: RegExpMatchArray | null
@@ -11,7 +11,7 @@ export class Parser {
         try {
             matches = initialGeneration.match(rawGenerationPattern)
         } catch (e) {
-            throw Error('Not able to match generation pattern')
+            throw Error('Not able to match grid pattern')
         }
 
         if (matches) {
@@ -21,8 +21,9 @@ export class Parser {
                 width: +matches[CapturedPattern.Width],
                 grid: matches[CapturedPattern.Grid]
             }
-        } else
-             throw Error('Raw generation format is not correct')
+        }
+
+        throw Error('Raw generation format is not correct')
     }
 
 }
